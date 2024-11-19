@@ -9,7 +9,8 @@ const Search = ({ onSearch }) => {
   const handleHashChange = useCallback(() => {
     const newHash = window.location.hash.substring(1);
     const decodedTerm = newHash ? decodeURIComponent(newHash) : "";
-    setSearchTerm(decodedTerm);
+    console.log(decodedTerm);
+    setSearchTerm(decodedTerm); //SC 
     onSearch(decodedTerm);
   }, [onSearch]);
 
@@ -35,14 +36,14 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex justify-center sticky top-0 z-10 items-center">
-      <div className="sticky z-10 top-0 w-full max-w-3xl">
+    <div className="flex justify-center items-center">
+      <div className="relative w-full max-w-3xl">
         <input
           name="searchTerm"
           placeholder="Search for currency"
           value={searchTerm}
           onChange={handleSearchChange}
-          className="w-full h-12 bg-white pl-10 rounded-xl border border-gray-300 focus:outline-none"
+          className="w-full h-12 text-lg bg-white pl-10 rounded-xl border border-gray-300 focus:outline-none"
         />
         <div className="absolute inset-y-0 right-3 flex items-center">
           <FaSearch className="text-gray-500" />

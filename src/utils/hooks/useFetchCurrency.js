@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import currencies from "../../data/fx.json";
 
 export const useFetchCurrency = () => {
+  // Track loading state
+  const [loading, setLoading] = useState(true);
   const [currencyData, setCurrencyData] = useState([
     {
       flag: "ke",
@@ -23,10 +25,7 @@ export const useFetchCurrency = () => {
             currency.exchangeRate && currency.flags && currency.nameI18N
         )
         .map((currency) => ({
-          flag:
-            currency?.flags[0] === "provided"
-              ? flagConversion(currency.currency)
-              : "No Flag Available",
+          flag: flagConversion(currency.currency),
           currency: currency?.currency,
           nameI18N: currency?.nameI18N,
           buy: currency?.exchangeRate.buy,
@@ -34,10 +33,11 @@ export const useFetchCurrency = () => {
         }));
 
       setCurrencyData(transformedData);
+      setLoading(false);
     };
 
     fetchCurrencyData();
   }, []); // Empty dependency array ensures this effect only runs once on mount
 
-  return currencyData; // Return both the data and loading state
+  return { currencyData, loading }; // Return both the data and loading state
 };
