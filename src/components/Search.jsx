@@ -9,7 +9,6 @@ const Search = ({ onSearch }) => {
   const handleHashChange = useCallback(() => {
     const newHash = window.location.hash.substring(1);
     const decodedTerm = newHash ? decodeURIComponent(newHash) : "";
-    console.log(decodedTerm);
     setSearchTerm(decodedTerm); //SC 
     onSearch(decodedTerm);
   }, [onSearch]);
