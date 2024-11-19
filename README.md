@@ -1,8 +1,37 @@
-# React + Vite
+# Currency Exchange Rates 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive web application that displays currency exchange rates from local banks, with features like search, pagination, and filtering via URL deep linking.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- 📊 Display of currency exchange rates from fx.json file.
+- 🔍 Search functionality for currencies.
+- 📄 Pagination for better data navigation.
+- 🌐 URL-based filtering for deep linking.
+- 📱 Fully responsive design for all devices.
+- 🌀 Interactive and user-friendly loading indicators.
+
+---
+
+## Technologies Used
+
+- **Frontend**: React, Tailwind CSS
+- **Icons**: React Icons (e.g., `FaSearch`, `FaCaretUp`, `FaCaretDown`)
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```git clone https://github.com/your-username/currency-dashboard.git ```
+
+2. Navigate to the project directory: 
+   ```cd currency-dashboard ```
+
+3. Install the dependencies: 
+   ``` npm install ```
+
+4. Start the development server: 
+   ```npm run dev ``
