@@ -6,7 +6,8 @@
 
 body {
   overflow-y: scroll;
-  height: 100%;
+  min-height: 100vh;
+  background-color: #c0c0c0;
   background: linear-gradient(
     0deg,
     rgba(12, 108, 176, 0.7) 8%,
