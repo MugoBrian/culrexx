@@ -34,4 +34,4 @@ A responsive web application that displays currency exchange rates from local ba
    ``` npm install ```
 
 4. Start the development server: 
-   ```npm run dev ``
+   ```npm run dev ```
