@@ -11,7 +11,9 @@ const Navbar = () => {
         />
       </div>
       <div>
-        <FaGithub className="h-8 w-8 sm:h-9 sm:w-9" />
+        <a href="https://github.com/MugoBrian/culrexx" target="_blank">
+          <FaGithub className="h-8 w-8 sm:h-9 sm:w-9" />
+        </a>
       </div>
     </div>
   );
