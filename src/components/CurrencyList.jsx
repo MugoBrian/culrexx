@@ -1,7 +1,7 @@
 import { useFetchCurrency } from "../utils/hooks/useFetchCurrency";
 import Pagination from "./Pagination";
 import CurrencyCard from "./CurrencyCard";
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import Search from "./Search";
 
 const CurrencyList = () => {
@@ -9,31 +9,32 @@ const CurrencyList = () => {
   const [currentData, setCurrentData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
-  // Initialize filteredData when currencyData changes
-  useEffect(() => {
-    setFilteredData(currencyData);
-  }, [currencyData]);
+  // currencyData is an arrya of objects of all the currencies returned by the useFetchCurrency hook.
 
   const handleSearch = useCallback(
+    // term passed from onSearch prop in the Search component.
     (term) => {
+      // if no search term specified filteredData will be set to currencyData
       if (!term) {
         setFilteredData(currencyData);
         return;
       }
 
+      // set term to lowercase, filter an individual currency by its currency and set result to filteredData.
       const lowerCaseTerm = term.toLowerCase();
       const filtered = currencyData.filter((item) =>
         item.currency.toLowerCase().includes(lowerCaseTerm)
       );
       setFilteredData(filtered);
     },
-    [currencyData]
+    [currencyData] // the memoized function reruns whenever currencyData is updated.
   );
 
   return (
     <div className="mt-16 mb-8">
-      <div  className="sticky top-0 p-4 mb-20">
-        <Search onSearch={handleSearch}/>
+      <div className="sticky top-0 p-4 mb-20">
+        {/* Pass handleSearch memoized function as a prop  */}
+        <Search onSearch={handleSearch} />
       </div>
       <div className="mb-10 flex justify-center items-center">
         <h6 className="text-white text-2xl justify-center tracking-[0.64px]">
@@ -53,6 +54,8 @@ const CurrencyList = () => {
         )}
       </div>
       <div>
+        
+        {/* props data is set to filteredData and function setCurrentData is passed to set currentData whenever it changes */}
         <Pagination data={filteredData} onPageChange={setCurrentData} />
       </div>
     </div>
