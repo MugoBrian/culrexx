@@ -16,8 +16,7 @@ body {
   );
   /* background-size:100% 100%; */
   background-repeat: no-repeat;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin: 0 120px;
   padding: 0;
   font-family: Poppins, "sans-serif";
 }
@@ -26,22 +25,19 @@ body {
 /* Smartphone */
 @media only screen and (max-width: 600px) {
   body {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin: 0 8px;
   }
 }
 /* Small tablets */
 @media only screen and (min-width: 600px) {
   body {
-    margin-left: 24px;
-    margin-right: 24px;
+    margin: 0 24px;
   }
 }
 
 /* Large tablets */
 @media only screen and (min-width: 768px) {
   body {
-    margin-left: 64px;
-    margin-right: 64px;
+    margin: 0 64px;
   }
 }
