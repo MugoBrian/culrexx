@@ -6,7 +6,7 @@ const Navbar = () => {
       <div>
         <img
           src={logo}
-          className="w-24 sm:w-32 h-12 sm:h-16"
+          className="w-24 h-12 sm:w-32 sm:h-16"
           alt="Culrexx logo"
         />
       </div>
