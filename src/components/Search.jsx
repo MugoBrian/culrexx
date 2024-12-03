@@ -7,14 +7,19 @@ const Search = ({ onSearch }) => {
 
   // Handle hash changes
   const handleHashChange = useCallback(() => {
+
+    // Get the uncoded version of the search term infront of the # in the URL
     const newHash = window.location.hash.substring(1);
     const decodedTerm = newHash ? decodeURIComponent(newHash) : "";
-    setSearchTerm(decodedTerm); //SC 
+
+    setSearchTerm(decodedTerm); //Set the uncoded search term to state Search
+    
     onSearch(decodedTerm);
   }, [onSearch]);
 
   // Initialize from URL hash and set up listener
   useEffect(() => {
+    // When the component renders checks whether there's a URL hash
     handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -54,6 +59,7 @@ const Search = ({ onSearch }) => {
 
 export default Search;
 
+// propTypes to ensure prop onSearch is a function and it has been passed
 Search.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };
